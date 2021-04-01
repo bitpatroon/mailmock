@@ -36,10 +36,7 @@ class MailMessage extends \TYPO3\CMS\Core\Mail\MailMessage
      */
     protected function getOriginalFrom()
     {
-        /** @var string|array $from */
-        $from = $this->getFrom();
-
-        return implode(',', array_keys($from));
+        return current($this->getFrom())->getAddress();
     }
 
     /**
@@ -49,10 +46,14 @@ class MailMessage extends \TYPO3\CMS\Core\Mail\MailMessage
      */
     protected function getOriginalTo()
     {
-        /** @var string|array $from */
         $to = $this->getTo();
 
-        return implode(',', array_keys($to));
+        $result = [];
+        foreach ($to as $item) {
+            $result[] = $item->getAddress();
+        }
+
+        return implode(',', $result);
     }
 
     private function storeMailAsMock()
@@ -61,10 +62,11 @@ class MailMessage extends \TYPO3\CMS\Core\Mail\MailMessage
         $mailMock
             ->setTstamp(time())
             ->setCrdate(time())
-            ->setSubject($this->getSubject())
-            ->setMessage($this->getBody())
-            ->setSender($this->getOriginalFrom())
-            ->setRecipients($this->getOriginalTo());
+            ->setSubject($this->getSubject() ?? '')
+            ->setHtml($this->getHtmlBody() ?? '')
+            ->setText($this->getTextBody() ?? '')
+            ->setSender($this->getOriginalFrom() ?? '')
+            ->setRecipients($this->getOriginalTo() ?? '');
 
         /** @var MailMockRepository $mailMockRepository */
         $mailMockRepository = GeneralUtility::makeInstance(ObjectManager::class)
@@ -72,10 +74,6 @@ class MailMessage extends \TYPO3\CMS\Core\Mail\MailMessage
 
         $mailMockRepository->add($mailMock);
 
-        /** @var PersistenceManager $persistenceManager */
-        $persistenceManager = GeneralUtility::makeInstance(ObjectManager::class)
-            ->get(PersistenceManager::class);
-
-        $persistenceManager->persistAll();
+        GeneralUtility::getContainer()->get(PersistenceManager::class)->persistAll();
     }
 }

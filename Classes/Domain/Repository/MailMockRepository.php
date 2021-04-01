@@ -27,9 +27,7 @@
 
 namespace Bpn\MailMock\Domain\Repository;
 
-use TYPO3\CMS\Extbase\Persistence\Repository;
-
-class MailMockRepository extends Repository
+class MailMockRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
 
 }

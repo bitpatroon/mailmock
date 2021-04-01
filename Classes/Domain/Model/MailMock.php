@@ -27,142 +27,127 @@
 
 namespace Bpn\MailMock\Domain\Model;
 
-use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
-
-class MailMock extends AbstractEntity
+class MailMock extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
-    /** @var int */
-    protected $tstamp;
-    /** @var int */
-    protected $crdate;
-    /** @var string */
-    protected $subject;
-    /** @var string */
-    protected $message;
-    /** @var string */
-    protected $sender;
-    /** @var string */
-    protected $recipients;
+    /**
+     * @var int
+     */
+    protected $tstamp = 0;
+    /**
+     * @var int
+     */
+    protected $crdate = 0;
+    /**
+     * @var string
+     */
+    protected $subject = '';
+    /**
+     * @var string
+     */
+    protected $html = '';
+    /**
+     * @var string
+     */
+    protected $text = '';
+    /**
+     * @var string
+     */
+    protected $sender = '';
+    /**
+     * @var string
+     */
+    protected $recipients = '';
 
     /**
-     * @return int
+     * MailMock constructor.
      */
-    public function getTstamp() : int
+    public function __construct()
+    {
+        $this->setTstamp(time());
+        $this->setCrdate(time());
+    }
+
+    public function getTstamp(): int
     {
         return $this->tstamp;
     }
 
-    /**
-     * @param int $tstamp
-     *
-     * @return MailMock
-     */
-    public function setTstamp(int $tstamp) : MailMock
+    public function setTstamp(int $tstamp): MailMock
     {
         $this->tstamp = $tstamp;
 
         return $this;
     }
 
-    /**
-     * @return int
-     */
-    public function getCrdate() : int
+    public function getCrdate(): int
     {
         return $this->crdate;
     }
 
-    /**
-     * @param int $crdate
-     *
-     * @return MailMock
-     */
-    public function setCrdate(int $crdate) : MailMock
+    public function setCrdate(int $crdate): MailMock
     {
         $this->crdate = $crdate;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getSubject() : string
+    public function getSubject(): string
     {
         return $this->subject;
     }
 
-    /**
-     * @param string $subject
-     *
-     * @return MailMock
-     */
-    public function setSubject(string $subject) : MailMock
+    public function setSubject(string $subject): MailMock
     {
         $this->subject = $subject;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getMessage() : string
+    public function getHtml(): string
     {
-        return $this->message;
+        return $this->html;
     }
 
-    /**
-     * @param string $message
-     *
-     * @return MailMock
-     */
-    public function setMessage(string $message) : MailMock
+    public function setHtml(string $html): MailMock
     {
-        $this->message = $message;
+        $this->html = $html;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getSender() : string
+    public function getText(): string
+    {
+        return $this->text;
+    }
+
+    public function setText(string $text): MailMock
+    {
+        $this->text = $text;
+
+        return $this;
+    }
+
+    public function getSender(): string
     {
         return $this->sender;
     }
 
-    /**
-     * @param string $sender
-     *
-     * @return MailMock
-     */
-    public function setSender(string $sender) : MailMock
+    public function setSender(string $sender): MailMock
     {
         $this->sender = $sender;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getRecipients() : string
+    public function getRecipients(): string
     {
         return $this->recipients;
     }
 
-    /**
-     * @param string $recipients
-     *
-     * @return MailMock
-     */
-    public function setRecipients(string $recipients) : MailMock
+    public function setRecipients(string $recipients): MailMock
     {
         $this->recipients = $recipients;
 
         return $this;
     }
-
-    
 }

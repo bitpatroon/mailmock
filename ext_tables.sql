@@ -10,7 +10,8 @@ CREATE TABLE tx_mailmock_domain_model_mailmock
 	subject    text              NOT NULL,
 	sender     text              NOT NULL,
 	recipients text              NOT NULL,
-	message    text              NOT NULL,
+	html       text              NOT NULL,
+	text       text              NOT NULL,
 	PRIMARY KEY (uid),
 	KEY parent (pid)
 );
