@@ -1,0 +1,36 @@
+{
+    "name": "bitpatroon/mailmock",
+    "type": "typo3-cms-extension",
+    "description": "Extension catching sent e-mail for testing purposes",
+    "keywords": [
+        "typo3",
+        "testing",
+        "service"
+    ],
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Sjoerd Zonneveld",
+            "homepage": "https://www.bitpatroon.nl",
+            "role": "Developer",
+            "email": "typo3@bitpatroon.nl"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "typo3/cms-core": "^10.4"
+    },
+    "config": {
+        "optimize-autoloader": true
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Bpn\\MailMock\\": "Classes"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "mailmock"
+        }
+    }
+}
