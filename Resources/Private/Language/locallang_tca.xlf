@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.0" standalone="yes">
+  <file source-language="en" datatype="plaintext" original="messages" data="2018-12-19T12-23-04" product-name="spl_fe">
+    <header/>
+    <body>
+      <trans-unit id="tx_mailmock_domain_model_mailmock" xml:space="preserve">
+          <source>Message</source>
+      </trans-unit>
+      <trans-unit id="tx_mailmock_domain_model_mailmock.tstamp" xml:space="preserve">
+          <source>Modified</source>
+      </trans-unit>
+      <trans-unit id="tx_mailmock_domain_model_mailmock.crdate" xml:space="preserve">
+          <source>Created</source>
+      </trans-unit>
+      <trans-unit id="tx_mailmock_domain_model_mailmock.subject" xml:space="preserve">
+          <source>Subject</source>
+      </trans-unit>
+      <trans-unit id="tx_mailmock_domain_model_mailmock.sender" xml:space="preserve">
+          <source>Sender</source>
+      </trans-unit>
+      <trans-unit id="tx_mailmock_domain_model_mailmock.recipients" xml:space="preserve">
+          <source>Recipients</source>
+      </trans-unit>
+      <trans-unit id="tx_mailmock_domain_model_mailmock.html" xml:space="preserve">
+          <source>HTML body</source>
+      </trans-unit>
+      <trans-unit id="tx_mailmock_domain_model_mailmock.text" xml:space="preserve">
+          <source>Text body</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
